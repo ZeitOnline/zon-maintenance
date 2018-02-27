@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ZEIT ONLINE Maintenance\n"
+"POT-Creation-Date: 2018-02-27 15:50+0100\n"
+"PO-Revision-Date: 2018-02-27 16:07+0100\n"
+"Last-Translator: \n"
+"Language-Team: Nico Brünjes <nico.bruenjes@zeit.de>\n"
+"Language: de_DE@formal\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: zon-maintenance.php\n"
+
+#: zon-maintenance.php:113
+msgid "Comments are temporarely closed"
+msgstr "Kommentieren zur Zeit nicht möglich"
+
+#: zon-maintenance.php:114
+msgid ""
+"This weblog is in maintenance mode at present. Comments are closed during "
+"this time. Please revisit later. Sorry for the inconvenience."
+msgstr ""
+"Dieses Weblog ist derzeit im Wartungsmodus. Ein Kommentieren ist zur Zeit "
+"nicht möglich. Bitte versuchen Sie es zu einem späteren Zeitpunkt nochmal."
+
+#: zon-maintenance.php:324
+msgid ""
+"The site is in maintenance mode during which login is prevented. Please try "
+"again later."
+msgstr ""
+"Die Seite ist im Maintenance Mode, ein Login ist zur Zeit nicht möglich."
+
+#: zon-maintenance.php:372
+msgid "General settings"
+msgstr "Generelle Einstellungen"
+
+#: zon-maintenance.php:379
+msgid "Main switch"
+msgstr "Hauptschalter"
+
+#: zon-maintenance.php:387
+msgid "Logout users"
+msgstr "Nutzer sofort abmelden"
+
+#: zon-maintenance.php:395
+msgid "Maintenance message"
+msgstr "Maintenance Nachricht"
+
+#: zon-maintenance.php:402
+msgid "Title"
+msgstr "Titel"
+
+#: zon-maintenance.php:410
+msgid "Text"
+msgstr "Text"
+
+#: zon-maintenance.php:436
+msgid "Activate maintenance"
+msgstr "Maintenance Mode einschalten"
+
+#: zon-maintenance.php:451
+msgid "Activate user log out"
+msgstr "Nutzersperre aktivieren"
+
+#: zon-maintenance.php:453
+msgid ""
+"All users that are not super admin are logged out of the backend at next "
+"page reload."
+msgstr ""
+"Alle Nutzer außer Superadmin werden beim nächsten Seitenaufruf aus dem "
+"Backend automatisch ausgeloggt."
+
+#: zon-maintenance.php:463
+msgid ""
+"In maintenance mode instead of a comment form a message with adjustable "
+"title and text is displayed."
+msgstr ""
+"Statt des Kommentarformulars wird im <em>Maintenance Mode</em> ein "
+"Hinweisfeld angezeigt. Titel und Text des Feldes können hier eingetragen "
+"werden."
+
+#: zon-maintenance.php:476
+msgid "Title of the message box"
+msgstr "Überschrift in der Nachrichtenbox"
+
+#: zon-maintenance.php:492
+msgid "Text of the message box"
+msgstr "Text in der Nachrichtenbox"
+
+#: zon-maintenance.php:509 zon-maintenance.php:517
+msgid "ZEIT ONLINE Maintenance"
+msgstr "ZEIT ONLINE Maintenance"
+
+#: zon-maintenance.php:510 zon-maintenance.php:518
+msgid "ZON Maintenance"
+msgstr "ZON Maintenance"
+
+#: zon-maintenance.php:543
+msgid "Settings saved."
+msgstr "Einstellungen gespeichert."
