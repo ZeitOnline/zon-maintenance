@@ -570,7 +570,8 @@ HTML;
 	 * @since 1.0.0
 	 */
 	public function load_custom_wp_style() {
-		if ( isset( $this->options['maint_on'] ) && $this->options['maint_on'] == 1 ) {
+		$options = $this->get_options();
+		if ( isset( $options['maint_on'] ) && $options['maint_on'] == 1 ) {
 			wp_register_style( 'maintenance_css', plugin_dir_url(  __FILE__ ) .  'styles/maintenance.css', false, self::$version );
 			wp_enqueue_style( 'maintenance_css' );
 		}
