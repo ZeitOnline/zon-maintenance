@@ -1,0 +1,33 @@
+# @see: http://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Global styles
+[*]
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = tab
+indent_size = 4
+
+# HTML templates and JavaScript files
+[*.{html,tpl,js}]
+indent_style = space
+indent_size = 4
+
+[{.jshintrc,*.json,*.yml}]
+indent_style = space
+indent_size = 2
+insert_final_newline = false
+
+# CSS files
+[*.{sass, scss, css}]
+indent_style = tab
+indent_size = 4
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.txt]
+trim_trailing_whitespace = false
