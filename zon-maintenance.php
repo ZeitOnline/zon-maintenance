@@ -110,8 +110,8 @@ class Zon_Maintenance {
 		// are we network activated?
 		$this->networkactive = ( is_multisite() && array_key_exists( plugin_basename( __FILE__ ), (array) get_site_option( 'active_sitewide_plugins' ) ) );
 		// set default texts
-		$this->textbox_title = __('Comments are temporarely closed', self::$textdomain);
-		$this->textbox_text = __('This weblog is in maintenance mode at present. Comments are closed during this time. Please revisit later. Sorry for the inconvenience.', self::$textdomain);
+		$this->textbox_title = __( 'Comments are temporarely closed', self::$textdomain );
+		$this->textbox_text = __( 'This weblog is in maintenance mode at present. Comments are closed during this time. Please revisit later. Sorry for the inconvenience.', self::$textdomain );
 
 		// load translation first
 		add_action( 'plugins_loaded', array( $this, 'register_text_domain' ) );
@@ -134,13 +134,13 @@ class Zon_Maintenance {
 			// load frontend stylesheet
 			add_action( 'wp_enqueue_scripts', array( $this, 'load_custom_wp_style' ) );
 			// filter the commentform to conditionally disable comments
-			add_filter('comment_form_default_fields', array($this, 'comment_form_default_fields_filter'));
+			add_filter( 'comment_form_default_fields', array( $this, 'comment_form_default_fields_filter' ) );
 			// filter form default data
-			add_filter('comment_form_defaults', array($this, 'comment_form_defaults_filter'));
+			add_filter( 'comment_form_defaults', array( $this, 'comment_form_defaults_filter' ) );
 			// hide the comment textarea
-			add_filter('comment_form_field_comment', array($this, 'comment_form_field_comment_filter'));
+			add_filter( 'comment_form_field_comment', array( $this, 'comment_form_field_comment_filter' ) );
 			// display message
-			add_action('comment_form_top', array($this, 'comment_form_top_action'));
+			add_action( 'comment_form_top', array( $this, 'comment_form_top_action' ) );
 		}
 	}
 
@@ -299,7 +299,7 @@ class Zon_Maintenance {
 	 */
 	public function maintenance_toolbar_link( $wp_admin_bar ) {
 		$options = $this->get_options();
-		if ( isset( $options['maint_on'] ) && $options['maint_on'] == 1 ) {
+		if ( isset( $options[ 'maint_on' ] ) && $options[ 'maint_on' ] == 1 ) {
 			$args = array(
 				'id' => 'customlink',
 				'title' => 'Maintenance Mode aktiv!'
@@ -335,7 +335,7 @@ class Zon_Maintenance {
 	 */
 	public function load_custom_wp_admin_style() {
 		$options = $this->get_options();
-		if ( isset( $options['maint_on'] ) && $options['maint_on'] == 1 ) {
+		if ( isset( $options[ 'maint_on' ] ) && $options[ 'maint_on' ] == 1 ) {
 			wp_register_style( 'maintenance_admin_css', plugin_dir_url(  __FILE__ ) .  'styles/maintenance_admin.css', false, self::$version );
 			wp_enqueue_style( 'maintenance_admin_css' );
 		}
@@ -350,8 +350,8 @@ class Zon_Maintenance {
 	 */
 	public function log_out_user() {
 		$options = $this->get_options();
-		if ( isset( $options['maint_on'] ) && $options['maint_on'] == 1
-			&& isset( $options['log_out_user'] ) && $options['log_out_user'] == 1
+		if ( isset( $options[ 'maint_on' ] ) && $options[ 'maint_on' ] == 1
+			&& isset( $options[ 'log_out_user' ] ) && $options[ 'log_out_user' ] == 1
 		) {
 			if ( ! is_super_admin() ) {
 				wp_logout();
@@ -421,7 +421,8 @@ class Zon_Maintenance {
 	 * @since  1.0.0
 	 */
 	public function render_settings_section_helptext() {
-		echo "<p>Im <em>Maintenance Mode</em> bleibt die Website live, aber es werden keine Kommentare entgegen genommen und im Backend entsprechende Warnungen angezeigt.</p>";
+		$text = esc_html( __( 'In maintenance mode the website stays live but commenting is disabled, non super admin user can be logged out and warnings are displayed.', self::$textdomain ) );
+		echo "<p>$text</p>";
 	}
 
 	/**
@@ -434,7 +435,7 @@ class Zon_Maintenance {
 		$options = $this->get_options();
 		?>
 		<label>
-			<input type="checkbox" value="1" name="<?php echo $settings; ?>[maint_on]" <?php checked( 1 == $options['maint_on'] );?>> <?php _e( 'Activate maintenance', self::$textdomain ); ?>
+			<input type="checkbox" value="1" name="<?php echo $settings; ?>[maint_on]" <?php checked( 1 == $options[ 'maint_on' ] );?>> <?php _e( 'Activate maintenance', self::$textdomain ); ?>
 		</label>
 		<?php
 	}
@@ -449,7 +450,7 @@ class Zon_Maintenance {
 		$options = $this->get_options();
 		?>
 		<label>
-		<input type="checkbox" value="1" name="<?php echo $settings; ?>[log_out_user]" <?php checked( 1 == $options['log_out_user'] );?>> <?php _e( 'Activate user log out', self::$textdomain ); ?>
+		<input type="checkbox" value="1" name="<?php echo $settings; ?>[log_out_user]" <?php checked( 1 == $options[ 'log_out_user' ] );?>> <?php _e( 'Activate user log out', self::$textdomain ); ?>
 		</label>
 		<p class="description"><?php _e('All users that are not super admin are logged out of the backend at next page reload.', self::$textdomain ); ?></p>
 		<?php
@@ -473,7 +474,7 @@ class Zon_Maintenance {
 	public function render_title_textinput() {
 		$settings = self::SETTINGS;
 		$options = $this->get_options();
-		$title = isset( $options['title'] ) ? $options['title'] : $this->textbox_title;
+		$title = isset( $options[ 'title' ] ) ? $options[ 'title' ] : $this->textbox_title;
 		$helptext = __( 'Title of the message box', self::$textdomain );
 		echo <<<HTML
 			<input size="40" type="text" name="{$settings}[title]" value="$title">
@@ -489,7 +490,7 @@ HTML;
 	public function render_text_textarea() {
 		$settings = self::SETTINGS;
 		$options = $this->get_options();
-		$text = isset( $options['text'] ) ? $options['text'] : $this->textbox_text;
+		$text = isset( $options[ 'text' ] ) ? $options[ 'text' ] : $this->textbox_text;
 		$helptext = __( 'Text of the message box', self::$textdomain );
 		echo <<<HTML
 			<textarea name="{$settings}[text]" cols="40" rows="6">{$text}</textarea>
@@ -507,16 +508,16 @@ HTML;
 		if ( $this->networkactive ) {
 			add_submenu_page(
 				'settings.php', 									// parent_slug
-				__('ZEIT ONLINE Maintenance', self::$textdomain), 	// page_title
-				__('ZON Maintenance', self::$textdomain), 			// menu_title
+				__( 'ZEIT ONLINE Maintenance', self::$textdomain ), // page_title
+				__( 'ZON Maintenance', self::$textdomain ), 		// menu_title
 				'manage_network_options', 							// capability (super admin)
 				self::$plugin_name, 								// menu_slug
 				array( $this, 'options_page' ) 						// callback
 			);
 		} else if ( ! is_multisite() ) {
 			add_options_page(
-				__('ZEIT ONLINE Maintenance', self::$textdomain), 	// page_title
-				__('ZON Maintenance', self::$textdomain), 			// menu_title
+				__( 'ZEIT ONLINE Maintenance', self::$textdomain ), // page_title
+				__( 'ZON Maintenance', self::$textdomain ), 		// menu_title
 				'manage_options', 									// capability (admin)
 				self::$plugin_name, 								// menu_slug
 				array( $this, 'options_page' ) 						// callback
@@ -533,22 +534,22 @@ HTML;
 		if ( isset( $_POST[ 'submit' ] ) && isset( $_POST['_iwmp_nonce'] ) &&  wp_verify_nonce( $_POST['_iwmp_nonce'], 'iwmp_settings_nonce' ) ) {
 
 			$options = $this->get_options();
-			$options['maint_on'] = isset( $_POST[self::SETTINGS]['maint_on'] ) ? 1 : 0;
-			$options['log_out_user'] = isset( $_POST[self::SETTINGS]['log_out_user'] ) ? 1 : 0;
+			$options[ 'maint_on' ] = isset( $_POST[ self::SETTINGS ][ 'maint_on' ] ) ? 1 : 0;
+			$options[ 'log_out_user' ] = isset( $_POST[ self::SETTINGS ][ 'log_out_user' ] ) ? 1 : 0;
 
 			$updated = $this->update_options( $options );
 			if ( $updated ) {
 				add_settings_error(
 					'zmnt_general_settings',
 					'settings_updated',
-					__('Settings saved.', self::$textdomain),
+					__( 'Settings saved.', self::$textdomain ),
 					'updated'
 				);
 			}
 		}
 		?>
 		<div class="wrap">
-			<h2>Einstellungen › <?php echo esc_html( get_admin_page_title() ); ?></h2>
+			<h2><?php _e( 'Settings', self::$textdomain ); ?> › <?php echo esc_html( get_admin_page_title() ); ?></h2>
 			<?php settings_errors(); ?>
 			<form method="POST" action="">
 				<?php
@@ -557,7 +558,7 @@ HTML;
 				wp_nonce_field( 'iwmp_settings_nonce', '_iwmp_nonce' );
 				?>
 				<p class="submit">
-				<?php submit_button(null, 'primary', 'submit', false); ?>
+				<?php submit_button( null, 'primary', 'submit', false ); ?>
 				</p>
 			</form>
 		</div>
@@ -571,7 +572,7 @@ HTML;
 	 */
 	public function load_custom_wp_style() {
 		$options = $this->get_options();
-		if ( isset( $options['maint_on'] ) && $options['maint_on'] == 1 ) {
+		if ( isset( $options[ 'maint_on' ] ) && $options[ 'maint_on' ] == 1 ) {
 			wp_register_style( 'maintenance_css', plugin_dir_url(  __FILE__ ) .  'styles/maintenance.css', false, self::$version );
 			wp_enqueue_style( 'maintenance_css' );
 		}
@@ -587,7 +588,7 @@ HTML;
 	 */
 	public function comment_form_default_fields_filter( $fields ) {
 		$options = $this->get_options();
-		if ( isset( $options['maint_on'] ) && $options['maint_on'] == 1 ) {
+		if ( isset( $options[ 'maint_on' ] ) && $options[ 'maint_on' ] == 1 ) {
 			$fields = array(
 				'author' => '',
 				'email' => '',
@@ -607,7 +608,7 @@ HTML;
 	 */
 	public function comment_form_defaults_filter( $defaults ) {
 		$options = $this->get_options();
-		if ( isset( $options['maint_on'] ) && $options['maint_on'] == 1 ) {
+		if ( isset( $options[ 'maint_on' ] ) && $options[ 'maint_on' ] == 1 ) {
 			$defaults = array(
 				'logged_in_as' => '',
 				'submit_button' => '',
@@ -628,9 +629,9 @@ HTML;
 	 * @param  string $comment_field 	html for the comment textarea
 	 * @return string                	the filtered comment field html
 	 */
-	public function comment_form_field_comment_filter($comment_field = '') {
+	public function comment_form_field_comment_filter( $comment_field = '' ) {
 		$options = $this->get_options();
-		if ( isset( $options['maint_on'] ) && $options['maint_on'] == 1 ) {
+		if ( isset( $options[ 'maint_on' ] ) && $options[ 'maint_on' ] == 1 ) {
 			$comment_field = '';
 		}
 		return $comment_field;
@@ -643,18 +644,18 @@ HTML;
 	 */
 	public function comment_form_top_action() {
 		$options = $this->get_options();
-		if ( isset( $options['maint_on'] ) && $options['maint_on'] == 1 ) {
-			$title = isset( $options['title'] ) ? esc_html( $options['title'] ) : $this->textbox_title;
-			$text = isset( $options['text'] ) ? esc_html( $options['text'] ) : $this->textbox_text;
-			$code = sprintf('<div class="%1$s"><h3 class="%1$s__title">%2$s</h3><p class="%1$s__text">%3$s</p></div>', 'maintenance', $title, $text);
+		if ( isset( $options[ 'maint_on' ] ) && $options[ 'maint_on' ] == 1 ) {
+			$title = isset( $options[ 'title' ] ) ? esc_html( $options[ 'title' ] ) : $this->textbox_title;
+			$text = isset( $options[ 'text' ] ) ? esc_html( $options[ 'text' ] ) : $this->textbox_text;
+			$code = sprintf( '<div class="%1$s"><h3 class="%1$s__title">%2$s</h3><p class="%1$s__text">%3$s</p></div>', 'maintenance', $title, $text );
 			echo $code;
 		}
 	}
 
 }
 
-register_activation_hook(__FILE__, array('Zon_Maintenance', 'activate'));
-register_deactivation_hook(__FILE__, array('Zon_Maintenance', 'deactivate'));
+register_activation_hook( __FILE__, array( 'Zon_Maintenance', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'Zon_Maintenance', 'deactivate' ) );
 
 // Instantiate our class
 $Zon_Maintenance = Zon_Maintenance::getInstance();

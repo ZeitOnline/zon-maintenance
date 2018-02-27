@@ -1,9 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ZEIT ONLINE Maintenance\n"
-"POT-Creation-Date: 2018-02-27 15:50+0100\n"
-"PO-Revision-Date: 2018-02-27 16:06+0100\n"
+"POT-Creation-Date: 2018-02-27 17:05+0100\n"
+"PO-Revision-Date: 2018-02-27 17:11+0100\n"
+"Last-Translator: \n"
 "Language-Team: Nico Brünjes <nico.bruenjes@zeit.de>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,8 +14,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
-"Last-Translator: \n"
-"Language: de_DE\n"
 "X-Poedit-SearchPath-0: zon-maintenance.php\n"
 
 #: zon-maintenance.php:113
@@ -28,46 +28,55 @@ msgstr ""
 "Dieses Weblog ist derzeit im Wartungsmodus. Ein Kommentieren ist zur Zeit "
 "nicht möglich. Bitte versuchen Sie es zu einem späteren Zeitpunkt nochmal."
 
-#: zon-maintenance.php:324
+#: zon-maintenance.php:325
 msgid ""
 "The site is in maintenance mode during which login is prevented. Please try "
 "again later."
 msgstr ""
 "Die Seite ist im Maintenance Mode, ein Login ist zur Zeit nicht möglich."
 
-#: zon-maintenance.php:372
+#: zon-maintenance.php:373
 msgid "General settings"
 msgstr "Generelle Einstellungen"
 
-#: zon-maintenance.php:379
+#: zon-maintenance.php:380
 msgid "Main switch"
 msgstr "Hauptschalter"
 
-#: zon-maintenance.php:387
+#: zon-maintenance.php:388
 msgid "Logout users"
 msgstr "Nutzer sofort abmelden"
 
-#: zon-maintenance.php:395
+#: zon-maintenance.php:396
 msgid "Maintenance message"
 msgstr "Maintenance Nachricht"
 
-#: zon-maintenance.php:402
+#: zon-maintenance.php:403
 msgid "Title"
 msgstr "Titel"
 
-#: zon-maintenance.php:410
+#: zon-maintenance.php:411
 msgid "Text"
 msgstr "Text"
 
-#: zon-maintenance.php:436
+#: zon-maintenance.php:424
+msgid ""
+"In maintenance mode the website stays live but commenting is disabled, non "
+"super admin user can be logged out and warnings are displayed."
+msgstr ""
+"Im Maintenance Mode bleibt die Website live, aber es werden keine "
+"Kommentare entgegen genommen, Nutzer ohne entsprechenden Status werden aus "
+"dem Backend ausgeloggt und es werden  entsprechende Warnungen angezeigt."
+
+#: zon-maintenance.php:438
 msgid "Activate maintenance"
 msgstr "Maintenance Mode einschalten"
 
-#: zon-maintenance.php:451
+#: zon-maintenance.php:453
 msgid "Activate user log out"
 msgstr "Nutzersperre aktivieren"
 
-#: zon-maintenance.php:453
+#: zon-maintenance.php:455
 msgid ""
 "All users that are not super admin are logged out of the backend at next "
 "page reload."
@@ -75,31 +84,34 @@ msgstr ""
 "Alle Nutzer außer Superadmin werden beim nächsten Seitenaufruf aus dem "
 "Backend automatisch ausgeloggt."
 
-#: zon-maintenance.php:463
+#: zon-maintenance.php:465
 msgid ""
 "In maintenance mode instead of a comment form a message with adjustable "
 "title and text is displayed."
 msgstr ""
-"Statt des Kommentarformulars wird im <em>Maintenance Mode</em> ein "
-"Hinweisfeld angezeigt. Titel und Text des Feldes können hier eingetragen "
-"werden."
+"Statt des Kommentarformulars wird im Maintenance Mode ein Hinweisfeld "
+"angezeigt. Titel und Text des Feldes können hier eingetragen werden."
 
-#: zon-maintenance.php:476
+#: zon-maintenance.php:478
 msgid "Title of the message box"
 msgstr "Überschrift in der Nachrichtenbox"
 
-#: zon-maintenance.php:492
+#: zon-maintenance.php:494
 msgid "Text of the message box"
 msgstr "Text in der Nachrichtenbox"
 
-#: zon-maintenance.php:509 zon-maintenance.php:517
+#: zon-maintenance.php:511 zon-maintenance.php:519
 msgid "ZEIT ONLINE Maintenance"
 msgstr "ZEIT ONLINE Maintenance"
 
-#: zon-maintenance.php:510 zon-maintenance.php:518
+#: zon-maintenance.php:512 zon-maintenance.php:520
 msgid "ZON Maintenance"
 msgstr "ZON Maintenance"
 
-#: zon-maintenance.php:543
+#: zon-maintenance.php:545
 msgid "Settings saved."
 msgstr "Einstellungen gespeichert."
+
+#: zon-maintenance.php:552
+msgid "Settings"
+msgstr "Einstellungen"
