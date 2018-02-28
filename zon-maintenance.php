@@ -10,7 +10,7 @@
  *
  * Plugin Name:       ZEIT ONLINE Maintenance
  * Plugin URI:        https://github.com/zeitonline/zon-maintenance
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Deactivate comments and user logins for maintenance tasks where emerge of data should be kept at minimum.
  * Version:           1.0.0
  * Author:            Nico Brünjes
  * Author URI:        https://www.zeit.de

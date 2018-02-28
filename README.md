@@ -29,7 +29,7 @@ Markdown parsed.
 
 ## Installation
 
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory or use the Github Updater Plugin to install
+1. Upload the `zon-maintenance` folder to the `/wp-content/plugins/` directory or use the Github Updater Plugin to install
 2. (Network) activate the plugin through the 'Plugins' menu in WordPress
 
 ## Changelog
