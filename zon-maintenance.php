@@ -531,7 +531,7 @@ HTML;
 	 * @since 1.0.0
 	 */
 	public function options_page() {
-		if ( isset( $_POST[ 'submit' ] ) && isset( $_POST['_iwmp_nonce'] ) &&  wp_verify_nonce( $_POST['_iwmp_nonce'], 'iwmp_settings_nonce' ) ) {
+		if ( isset( $_POST[ 'submit' ] ) && isset( $_POST[ '_' . self::PREFIX . '_nonce' ] ) &&  wp_verify_nonce( $_POST[ '_' . self::PREFIX . '_nonce' ], self::PREFIX . '_settings_nonce' ) ) {
 
 			$options = $this->get_options();
 			$options[ 'maint_on' ] = isset( $_POST[ self::SETTINGS ][ 'maint_on' ] ) ? 1 : 0;
@@ -555,7 +555,7 @@ HTML;
 				<?php
 				settings_fields( self::PREFIX . '_group' );
 				do_settings_sections( self::$plugin_name );
-				wp_nonce_field( 'iwmp_settings_nonce', '_iwmp_nonce' );
+				wp_nonce_field( self::PREFIX . '_settings_nonce', '_' . self::PREFIX . '_nonce' );
 				?>
 				<p class="submit">
 				<?php submit_button( null, 'primary', 'submit', false ); ?>
