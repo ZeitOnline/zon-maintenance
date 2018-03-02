@@ -11,7 +11,7 @@
  * Plugin Name:       ZEIT ONLINE Maintenance
  * Plugin URI:        https://github.com/zeitonline/zon-maintenance
  * Description:       Deactivate comments and user logins for maintenance tasks where emerge of data should be kept at minimum.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Nico Brünjes
  * Author URI:        https://www.zeit.de
  * License:           GPL-3.0+
@@ -533,7 +533,8 @@ HTML;
 	public function options_page() {
 		if ( isset( $_POST[ 'submit' ] ) && isset( $_POST[ '_' . self::PREFIX . '_nonce' ] ) &&  wp_verify_nonce( $_POST[ '_' . self::PREFIX . '_nonce' ], self::PREFIX . '_settings_nonce' ) ) {
 
-			$options = $this->get_options();
+			$options = isset( $_POST[ self::SETTINGS ] ) ? $_POST[ self::SETTINGS ] : $this->get_options();
+			// fix missing checkbox param when not checked
 			$options[ 'maint_on' ] = isset( $_POST[ self::SETTINGS ][ 'maint_on' ] ) ? 1 : 0;
 			$options[ 'log_out_user' ] = isset( $_POST[ self::SETTINGS ][ 'log_out_user' ] ) ? 1 : 0;
 
