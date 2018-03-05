@@ -4,7 +4,7 @@ Donate link: https://www.zeit.de
 Tags: comments, maintenance
 Requires at least: 4.6.0
 Tested up to: 4.9
-Stable tag: 1.0.0
+Stable tag: 1.0.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -40,3 +40,6 @@ Markdown parsed.
 = 1.0.1 =
 * Fix bug where textbox title and message could not be saved
 * Fix bug where textbox title and message where not translated
+
+= 1.0.2 =
+* Add forgotten github updater head comment
