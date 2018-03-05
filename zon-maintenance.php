@@ -11,7 +11,7 @@
  * Plugin Name:       ZEIT ONLINE Maintenance
  * Plugin URI:        https://github.com/zeitonline/zon-maintenance
  * Description:       Deactivate comments and user logins for maintenance tasks where emerge of data should be kept at minimum.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Nico Brünjes
  * Author URI:        https://www.zeit.de
  * License:           GPL-3.0+
