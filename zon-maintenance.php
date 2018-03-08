@@ -11,7 +11,7 @@
  * Plugin Name:       ZEIT ONLINE Maintenance
  * Plugin URI:        https://github.com/zeitonline/zon-maintenance
  * Description:       Deactivate comments and user logins for maintenance tasks where emerge of data should be kept at minimum.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            Nico Brünjes
  * Author URI:        https://www.zeit.de
  * License:           GPL-3.0+
@@ -320,11 +320,15 @@ class Zon_Maintenance {
 	 * @return WP_User || WP_Error	user object if super admin, otherwise Error
 	 */
 	public function prevent_from_login( $user, $password ) {
-		if ( ! is_super_admin( $user->ID ) ) {
-			return new WP_Error(
-				'maintenance_login_prevention',
-				__( 'The site is in maintenance mode during which login is prevented. Please try again later.', self::$textdomain )
-			);
+		if ( isset( $options[ 'maint_on' ] ) && $options[ 'maint_on' ] == 1
+			&& isset( $options[ 'log_out_user' ] ) && $options[ 'log_out_user' ] == 1
+		) {
+			if ( ! is_super_admin( $user->ID ) ) {
+				return new WP_Error(
+					'maintenance_login_prevention',
+					__( 'The site is in maintenance mode during which login is prevented. Please try again later.', self::$textdomain )
+				);
+			}
 		}
 		return $user;
 	}

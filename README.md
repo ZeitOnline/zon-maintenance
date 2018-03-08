@@ -18,9 +18,9 @@ for a amount of time, this plugin is for you.
 
 What it does:
 
-* Supplies a maintenance mode during which all comment forms are replaced with a message
-* Message title and text is adjustable
-* optionally logs out all non super admin users and prevents them from logging in
+- Supplies a maintenance mode during which all comment forms are replaced with a message
+- Message title and text is adjustable
+- optionally logs out all non super admin users and prevents them from logging in
 
 his is the long description.  No limit, and you can use Markdown (as well as in the following sections).
 
@@ -34,12 +34,17 @@ Markdown parsed.
 
 ## Changelog
 
-### 1.0.0
-* Initial and stable release
-
-### 1.0.1
-* Fix bug where textbox title and message could not be saved
-* Fix bug where textbox title and message where not translated
+### 1.0.3
+- Fix bug where user cannot login when only the plugin is installed
 
 ### 1.0.2
-* Add forgotten github updater head comment
+- Add forgotten github updater head comment
+
+### 1.0.1
+- Fix bug where textbox title and message could not be saved
+- Fix bug where textbox title and message where not translated
+
+### 1.0.0
+- Initial and stable release
+
+
