@@ -34,12 +34,19 @@ Markdown parsed.
 
 == Changelog ==
 
-= 1.0.0 =
-* Initial and stable release
+= 1.0.3 =
+* Fix bug where user cannot login when only the plugin is installed
+
+= 1.0.2 =
+* Add forgotten github updater head comment
 
 = 1.0.1 =
 * Fix bug where textbox title and message could not be saved
 * Fix bug where textbox title and message where not translated
 
-= 1.0.2 =
-* Add forgotten github updater head comment
+= 1.0.0 =
+* Initial and stable release
+
+
+
+
